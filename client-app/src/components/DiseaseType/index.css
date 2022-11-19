@@ -1,0 +1,20 @@
+.container-d {
+    /* width: 100vw;
+    height: 100vh; */
+    display: flex;
+    flex-direction: row;
+}
+
+.input-block-d {
+    height: 240vh;
+    width: 60%;
+    padding: 3%;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.users{
+    padding: 1.5%;
+}
