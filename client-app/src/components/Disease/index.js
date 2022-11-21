@@ -291,7 +291,7 @@ const Disease = () => {
 
     return (
       <div className='container-d' >
-        <Navbar height={1000} width={{ sm: 300 }}>
+        <Navbar height={970} width={{ sm: 300 }}>
             <Navbar.Section grow className={classes.wrapper}>
                 <div className={classes.aside}>
                     {mainLinks}
@@ -350,7 +350,7 @@ const Disease = () => {
           </thead>
               <tbody>{rows}</tbody>
             </Table>
-            <div style={{marginTop:"25px"}}>
+            <div style={{marginTop:"50px"}}>
             <Pagination
                 total={10}
                 position="center"

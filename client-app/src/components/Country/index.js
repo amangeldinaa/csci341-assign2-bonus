@@ -277,7 +277,7 @@ import {
   
       return (
         <div className='container-d' >
-          <Navbar height={950} width={{ sm: 300 }}>
+          <Navbar height={1150} width={{ sm: 300 }}>
               <Navbar.Section grow className={classes.wrapper}>
                   <div className={classes.aside}>
                       {mainLinks}
@@ -330,7 +330,7 @@ import {
                 <tbody>{rows}</tbody>
               </Table>
 
-              <div style={{marginTop:"25px"}}>
+              <div style={{marginTop:"50px"}}>
             <Pagination
                 total={10}
                 position="center"

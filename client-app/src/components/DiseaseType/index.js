@@ -276,7 +276,8 @@ const DiseaseType = () => {
 
     return (
       <div className='container-d' >
-        <Navbar height={750} width={{ sm: 300 }}>
+        <div style={{height:'100%'}}>
+        <Navbar height={850} width={{ sm: 300 }}>
             <Navbar.Section grow className={classes.wrapper}>
                 <div className={classes.aside}>
                     {mainLinks}
@@ -290,6 +291,7 @@ const DiseaseType = () => {
                 </div>
             </Navbar.Section>
         </Navbar>
+        </div>
         <div className='users'>
           <ScrollArea>
           <div style={{width:"100%",display:"flex",justifyContent:"space between"}}>
@@ -330,7 +332,7 @@ const DiseaseType = () => {
               
               <tbody>{rows}</tbody>
             </Table>
-            <div style={{marginTop:"25px"}}>
+            <div style={{marginTop:"50px"}}>
             <Pagination
                 total={10}
                 position="center"
