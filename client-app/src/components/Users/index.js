@@ -139,7 +139,7 @@ import axios from "axios";
     const [editsalary, setEditSalary] = useState(5000);
     const [editphone, setEditPhone] = useState('');
     const [editcname, setEditCname] = useState('');
-    const apiEndPoint = "http://127.0.0.1:8000/users";
+    const apiEndPoint = "https://web-production-6663.up.railway.app/users";
    
     useEffect(() => {
       loadUsers();

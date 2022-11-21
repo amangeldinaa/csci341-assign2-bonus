@@ -136,7 +136,7 @@ import axios from "axios";
     const [editdeaths, setEditDeaths] = useState(100);
     const [editpatients, setEditPatients] = useState(100);
     
-    const apiEndPoint = "http://127.0.0.1:8000/record";
+    const apiEndPoint = "https://web-production-6663.up.railway.app/record";
    
     useEffect(() => {
       loadUsers();

@@ -132,7 +132,7 @@ const DiseaseType = () => {
   const [description, setDescription] = useState('');
   const [editdescription, setEditDescription] = useState('');
   const [editid, setEditId] = useState(10);
-  const apiEndPoint = "http://127.0.0.1:8000/diseasetype";
+  const apiEndPoint = "https://web-production-6663.up.railway.app/diseasetype";
  
   useEffect(() => {
     loadUsers();

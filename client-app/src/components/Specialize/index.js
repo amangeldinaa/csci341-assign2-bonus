@@ -133,7 +133,7 @@ import axios from "axios";
     const [editemail, setEditemail] = useState('');
     const [editid, setEditid] = useState(1);
     const [editdiseaseid, setEditdiseaseid] = useState(1);
-    const apiEndPoint = "http://127.0.0.1:8000/specialize";
+    const apiEndPoint = "https://web-production-6663.up.railway.app/specialize";
    
     useEffect(() => {
       loadUsers();

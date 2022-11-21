@@ -131,7 +131,7 @@ import axios from "axios";
     const [degree, setDegree] = useState('');
     const [editemail, setEditemail] = useState('');
     const [editdegree, setEditDegree] = useState('');
-    const apiEndPoint = "http://127.0.0.1:8000/doctor";
+    const apiEndPoint = "https://web-production-6663.up.railway.app/doctor";
    
     useEffect(() => {
       loadUsers();

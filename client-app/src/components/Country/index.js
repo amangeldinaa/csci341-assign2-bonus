@@ -128,7 +128,7 @@ import {
     const [population, setPopulation] = useState(0);
     const [editcname, setEditCname] = useState('');
     const [editpopulation, setEditPopulation] = useState(0);
-    const apiEndPoint = "http://127.0.0.1:8000/country";
+    const apiEndPoint = "https://web-production-6663.up.railway.app/country";
    
     useEffect(() => {
       loadUsers();

@@ -132,7 +132,7 @@ import axios from "axios";
     const [department, setDepartment] = useState('');
     const [editemail, setEditemail] = useState('');
     const [editdepartment, setEditdepartment] = useState('');
-    const apiEndPoint = "http://127.0.0.1:8000/publicservant";
+    const apiEndPoint = "https://web-production-6663.up.railway.app/publicservant";
    
     useEffect(() => {
       loadUsers();

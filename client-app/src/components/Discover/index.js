@@ -132,7 +132,7 @@ const Discover = () => {
   const [editcname, setEditCname] = useState('');
   const [editdiseasecode, setEditDiseasecode] = useState('');
   const [editdate, setEditDate] = useState('');
-  const apiEndPoint = "http://127.0.0.1:8000/discover";
+  const apiEndPoint = "https://web-production-6663.up.railway.app/discover";
  
   useEffect(() => {
     loadUsers();

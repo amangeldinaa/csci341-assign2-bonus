@@ -136,7 +136,7 @@ const Disease = () => {
   const [editpathogen, setEditPathogen] = useState('');
   const [editdescription, setEditDescription] = useState('');
   const [editid, setEditId] = useState(1);
-  const apiEndPoint = "http://127.0.0.1:8000/disease";
+  const apiEndPoint = "https://web-production-6663.up.railway.app/disease";
  
   useEffect(() => {
     loadUsers();
