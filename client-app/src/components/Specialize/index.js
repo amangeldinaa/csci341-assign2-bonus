@@ -165,7 +165,7 @@ import axios from "axios";
             headers: {}, 
             data: {
               email: email, 
-              id: 25,
+              // id: 25,
               diseaseid: id
             }
         }).then((result)=>{
