@@ -47,16 +47,3 @@ class Record(models.Model):
     disease_code = models.ForeignKey(Disease, on_delete=models.CASCADE)
     total_deaths = models.IntegerField()
     total_patients = models.IntegerField()
-
-    # email = models.OneToOneField(PublicServant, models.DO_NOTHING, db_column='email', primary_key=True)
-    # cname = models.ForeignKey(Country, models.DO_NOTHING, db_column='cname')
-    # disease_code = models.ForeignKey(Disease, models.DO_NOTHING, db_column='disease code')  
-    # total_deaths = models.IntegerField(db_column='total deaths')  # Field renamed to remove unsuitable characters.
-    # total_patients = models.IntegerField(db_column='total patients')  # Field renamed to remove unsuitable characters.
-
-    # class Record(models.Model):
-    # email = models.ForeignKey(Users, unique=True , on_delete=models.CASCADE, primary_key=True)
-    # cname = models.ForeignKey(Country, on_delete=models.CASCADE)
-    # disease_code = models.ForeignKey(Disease, on_delete=models.CASCADE)
-    # total_deaths = models.IntegerField(blank=True, null=True)
-    # total_patients = models.IntegerField( blank=True, null=True)
