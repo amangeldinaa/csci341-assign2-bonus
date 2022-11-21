@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'DjangoAPI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthcare-django',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '6916qwopzxnm',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'PASSWORD': 'budT4alEoPMiruDRmCuW',
+        'HOST': 'containers-us-west-128.railway.app',
+        'PORT': '6076',
     }
 }
 
