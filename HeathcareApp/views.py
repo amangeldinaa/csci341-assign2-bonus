@@ -8,6 +8,9 @@ from HeathcareApp.models import *
 from HeathcareApp.serializers import *
 from django.core.files.storage import default_storage
 
+from sqlalchemy import create_engine
+from sqlalchemy import text
+
 # Create your views here.
 
 @csrf_exempt
@@ -262,3 +265,17 @@ def recordApi(request):
         record=Record.objects.get(cname=record_data['cname'], email=record_data['email'], disease_code=record_data['disease_code'])
         record.delete()
         return JsonResponse("Deleted successfully",safe=False)
+
+engine = create_engine('postgresql://postgres:budT4alEoPMiruDRmCuW@containers-us-west-128.railway.app:6076/railway', echo=False)
+
+@csrf_exempt
+def query1Api(request):
+    if request.method=='GET':
+        sql = text(
+            '''
+            SELECT d.disease_code, d.description
+            FROM Disease d, Discover ds
+            WHERE d.pathogen='bacteria' AND ds.first_enc_date<'1990-01-01' AND d.disease_code=ds.disease_code;
+            ''')
+        res = engine.connect().execute(sql).fetchall()
+        return res

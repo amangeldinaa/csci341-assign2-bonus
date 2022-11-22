@@ -27,5 +27,8 @@ urlpatterns=[
     re_path(r'^specialize/([0-9]+)$',views.specializeApi),
 
     re_path(r'^record$',views.recordApi),
-    re_path(r'^record/([0-9]+)$',views.recordApi)
+    re_path(r'^record/([0-9]+)$',views.recordApi),
+
+    re_path(r'^query1$',views.query1Api),
+    re_path(r'^query1/([0-9]+)$',views.query1Api),
 ]
