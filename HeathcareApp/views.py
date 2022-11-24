@@ -8,8 +8,8 @@ from HeathcareApp.models import *
 from HeathcareApp.serializers import *
 from django.core.files.storage import default_storage
 
-from sqlalchemy import create_engine
-from sqlalchemy import text
+# from sqlalchemy import create_engine
+# from sqlalchemy import text
 
 # Create your views here.
 
@@ -275,7 +275,7 @@ from django.shortcuts import redirect, render
 import simplejson
 from django.views.decorators.csrf import csrf_exempt
 import simplejson
-engine = create_engine('postgresql://postgres:6916qwopzxnm@localhost:5432/hospital_db', echo=False)
+# engine = create_engine('postgresql://postgres:6916qwopzxnm@localhost:5432/hospital_db', echo=False)
 
 @csrf_exempt
 def query1Api(request):
