@@ -135,7 +135,7 @@ import {
     const [res10, setRes10] = useState([]);
     const [res11, setRes11] = useState([]);
 
-    const apiEndPoint = "http://127.0.0.1:8000/query1";
+    const apiEndPoint = "https://web-production-6663.up.railway.app/query1";
 
     const queries = [
       { res: res ,id: 1, query: 'List the disease code and the description of diseases that are caused by “bacteria” (pathogen) and were discovered before 1990.'},
@@ -173,61 +173,61 @@ import {
     };
 
     const loadQuery2 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query2`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query2`);
       console.log(result);
       setRes2(result.data);
     };
 
     const loadQuery3 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query3`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query3`);
       console.log(result);
       setRes3(result.data);
     };
 
     const loadQuery4 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query4`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query4`);
       console.log(result);
       setRes4(result.data);
     };
 
     const loadQuery5 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query5`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query5`);
       console.log(result);
       setRes5(result.data);
     };
 
     const loadQuery6 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query6`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query6`);
       console.log(result);
       setRes6(result.data);
     };
 
     const loadQuery7 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query7`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query7`);
       console.log(result);
       setRes7(result.data);
     };
 
     const loadQuery8 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query8`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query8`);
       console.log(result);
       setRes8(result.data);
     };
 
     const loadQuery9 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query9`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query9`);
       console.log(result);
       setRes9(result.data);
     };
 
     const loadQuery10 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query10`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query10`);
       console.log(result);
       setRes10(result.data);
     };
 
     const loadQuery11 = async () => {
-      const result = await axios.get(`http://127.0.0.1:8000/query11`);
+      const result = await axios.get(`https://web-production-6663.up.railway.app/query11`);
       console.log(result);
       setRes11(result.data);
     };
