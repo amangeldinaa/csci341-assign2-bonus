@@ -8,6 +8,7 @@ import Doctor from "./components/Doctor";
 import Specialize from "./components/Specialize";
 import Country from "./components/Country";
 import Record from "./components/Record";
+import Query from "./components/Queries";
 import {Route, Routes} from 'react-router-dom';
 import React from 'react';
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/specialize" element={<Specialize/>} exact/>
           <Route path="/country" element={<Country/>} exact/>
           <Route path="/record" element={<Record/>} exact/>
+          <Route path="/query" element={<Query/>} exact/>
         </Routes>
         </main>
       </React.Fragment>

@@ -19,7 +19,8 @@ import {
   IconPencil,
   IconFileDescription,
   IconTrash,
-  IconSearch
+  IconSearch,
+  IconFileSearch
 } from '@tabler/icons';
 import { Popover, Button, TextInput } from '@mantine/core';
 import { useState, useEffect } from 'react';
@@ -115,7 +116,8 @@ const mainLinksMockdata = [
   { icon: IconVirus, label: 'Diseases' },
   { icon: IconUsers, label: 'People' },
   { icon: IconMap2, label: 'Locations' },
-  { icon: IconFileDescription, label: 'Actions' }
+  { icon: IconFileDescription, label: 'Actions' },
+  { icon: IconSearch, label: 'Queries' }
 ];
 
 const linksMockdata = [
@@ -209,6 +211,9 @@ const Discover = () => {
               }
               if(link.label === "Actions") {
                 window.location.href='/record';
+              }
+              if(link.label === "Queries") {
+                window.location.href='/query';
               }
           setActive(link.label)}}
         className={cx(classes.mainLink, { [classes.mainLinkActive]: link.label === active })}

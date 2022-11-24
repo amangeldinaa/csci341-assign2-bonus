@@ -266,16 +266,174 @@ def recordApi(request):
         record.delete()
         return JsonResponse("Deleted successfully",safe=False)
 
-engine = create_engine('postgresql://postgres:budT4alEoPMiruDRmCuW@containers-us-west-128.railway.app:6076/railway', echo=False)
+# engine = create_engine('postgresql://postgres:budT4alEoPMiruDRmCuW@containers-us-west-128.railway.app:6076/railway', echo=False)
+
+from django.http import HttpResponse
+from django.db import connection
+from django.db.models import fields
+from django.shortcuts import redirect, render
+import simplejson
+from django.views.decorators.csrf import csrf_exempt
+import simplejson
+engine = create_engine('postgresql://postgres:6916qwopzxnm@localhost:5432/hospital_db', echo=False)
 
 @csrf_exempt
 def query1Api(request):
-    if request.method=='GET':
-        sql = text(
-            '''
-            SELECT d.disease_code, d.description
-            FROM Disease d, Discover ds
-            WHERE d.pathogen='bacteria' AND ds.first_enc_date<'1990-01-01' AND d.disease_code=ds.disease_code;
-            ''')
-        res = engine.connect().execute(sql).fetchall()
-        return res
+    with connection.cursor() as cursor:
+        q = '''
+        SELECT d.disease_code, d.description
+        FROM public."HeathcareApp_disease" d, public."HeathcareApp_discover" ds
+        WHERE d.pathogen='bacteria' AND ds.first_enc_date<'1990-01-01' AND d.disease_code=ds.disease_code_id;
+        '''
+        cursor.execute(q)
+        return HttpResponse(
+        simplejson.dumps(cursor.fetchall(), use_decimal = True))
+
+def query2Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+        SELECT DISTINCT u.name, u.surname, d.degree
+        FROM public."HeathcareApp_doctor" d, public."HeathcareApp_users" u
+        WHERE d.email_id=u.email AND d.email_id NOT IN 
+            (SELECT DISTINCT s.email_id
+            FROM public."HeathcareApp_specialize" s
+            WHERE s.diseaseid_id =1
+            );
+        '''
+        cursor.execute(q)
+        return HttpResponse(
+        simplejson.dumps(cursor.fetchall(), use_decimal = True))
+
+def query3Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+       SELECT DISTINCT u.name, u.surname, d.degree
+        FROM public."HeathcareApp_doctor" d, public."HeathcareApp_users" u
+        WHERE d.email_id=u.email AND d.email_id IN (
+            SELECT s.email_id
+            FROM public."HeathcareApp_specialize" s
+            GROUP BY s.email_id
+            HAVING COUNT(*)>2
+            );
+        '''
+        cursor.execute(q)
+        return HttpResponse(
+        simplejson.dumps(cursor.fetchall(), use_decimal = True))
+
+def query4Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+        SELECT cname_id, AVG(salary)
+        FROM public."HeathcareApp_specialize" s, public."HeathcareApp_doctor" d, public."HeathcareApp_users" u
+        WHERE s.diseaseid_id=5 AND s.email_id=d.email_id AND d.email_id=u.email
+        GROUP BY cname_id;
+        '''
+        cursor.execute(q)
+        return HttpResponse(
+        simplejson.dumps(cursor.fetchall(), use_decimal = True))
+
+def query5Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+        SELECT p.department, COUNT(*)
+        FROM public."HeathcareApp_publicservant" p
+        WHERE p.email_id IN (
+            SELECT DISTINCT r.email_id
+            FROM public."HeathcareApp_record" r
+            WHERE r.disease_code_id='covid-19'
+            GROUP BY r.email_id
+            HAVING COUNT(*) > 1
+            )
+        GROUP BY p.department; 
+        '''
+        cursor.execute(q)
+        return HttpResponse(
+        simplejson.dumps(cursor.fetchall(), use_decimal = True))
+
+def query6Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+        UPDATE public."HeathcareApp_users" 
+        SET salary = salary * 2
+        WHERE email IN (
+        SELECT r.email_id
+        FROM public."HeathcareApp_record" r
+        WHERE r.disease_code_id='covid-19'
+        GROUP BY r.email_id
+        HAVING COUNT(*) > 3
+        );
+        '''
+        try:
+            cursor.execute(q)
+            return HttpResponse('Successfully updated salary')
+        except:
+            return HttpResponse('Error while updating salary')
+
+def query7Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+        DELETE 
+        FROM public."HeathcareApp_users" u 
+        WHERE u.name LIKE '%bek%' OR u.name LIKE '%Bek%' OR u.name LIKE '%gul%' OR u.name LIKE '%Gul%';
+        
+        '''
+        try:
+            cursor.execute(q)
+            return HttpResponse('Successfully deleted users')
+        except:
+            return HttpResponse('Error while deleting users')
+
+@csrf_exempt
+def query8Api(request):
+    with connection.cursor() as cursor:
+        # Create index on pathogen
+        q = '''
+        CREATE INDEX idx_pathogen ON public."HeathcareApp_disease"(pathogen);
+        
+        '''
+        try:
+            cursor.execute(q)
+            return HttpResponse('Successfully created index on pathogen')
+        except:
+            return HttpResponse('The index already exists')
+
+def query9Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+        SELECT u.email, u.name, p.department
+        FROM public."HeathcareApp_publicservant" p, public."HeathcareApp_users"  u
+        WHERE p.email_id=u.email AND p.email_id IN (
+            SELECT r.email_id
+            FROM public."HeathcareApp_record" r
+            GROUP BY r.email_id
+            HAVING SUM(r.total_patients)>99999 AND SUM(r.total_patients)<1000000
+     	);
+        '''
+        cursor.execute(q)
+        return HttpResponse(
+        simplejson.dumps(cursor.fetchall(), use_decimal = True))
+
+def query10Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+        SELECT r.cname_id
+        FROM public."HeathcareApp_record" r
+        GROUP BY r.cname_id
+        ORDER BY (SUM(r.total_patients)) DESC
+        LIMIT 5
+        '''
+        cursor.execute(q)
+        return HttpResponse(
+        simplejson.dumps(cursor.fetchall(), use_decimal = True))
+
+def query11Api(request):
+    with connection.cursor() as cursor:
+        q = '''
+        SELECT dt.description, SUM(r.total_patients)
+        FROM public."HeathcareApp_disease" d, public."HeathcareApp_diseasetype" dt, public."HeathcareApp_record" r
+        WHERE d.id_id=dt.id AND d.disease_code=r.disease_code_id
+        GROUP BY dt.description;
+        '''
+        cursor.execute(q)
+        return HttpResponse(
+        simplejson.dumps(cursor.fetchall(), use_decimal = True))

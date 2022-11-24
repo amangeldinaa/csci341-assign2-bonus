@@ -115,7 +115,8 @@ import axios from "axios";
     { icon: IconVirus, label: 'Diseases' },
     { icon: IconUsers, label: 'People' },
     { icon: IconMap2, label: 'Locations' },
-    { icon: IconFileDescription, label: 'Actions' }
+    { icon: IconFileDescription, label: 'Actions' },
+    { icon: IconSearch, label: 'Queries' }
   ];
   
   const linksMockdata = [
@@ -216,6 +217,9 @@ import axios from "axios";
               }
             if(link.label === "Locations") {
               window.location.href='/country';
+            }
+            if(link.label === "Queries") {
+              window.location.href='/query';
             }
             setActive(link.label)}}
           className={cx(classes.mainLink, { [classes.mainLinkActive]: link.label === active })}

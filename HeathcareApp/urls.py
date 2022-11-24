@@ -30,5 +30,14 @@ urlpatterns=[
     re_path(r'^record/([0-9]+)$',views.recordApi),
 
     re_path(r'^query1$',views.query1Api),
-    re_path(r'^query1/([0-9]+)$',views.query1Api),
+    re_path(r'^query2$',views.query2Api),
+    re_path(r'^query3$',views.query3Api),
+    re_path(r'^query4$',views.query4Api),
+    re_path(r'^query5$',views.query5Api),
+    re_path(r'^query6$',views.query6Api),
+    re_path(r'^query7$',views.query7Api),
+    re_path(r'^query8$',views.query8Api),
+    re_path(r'^query9$',views.query9Api),
+    re_path(r'^query10$',views.query10Api),
+    re_path(r'^query11$',views.query11Api),
 ]

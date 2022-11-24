@@ -120,76 +120,121 @@ import {
   ];
   
   const linksMockdata = [
-    'Countries'
   ];
   
-  const Country = () => {
-    const [users, setUser] = useState([]);
-    const [cname, setCname] = useState('');
-    const [population, setPopulation] = useState(0);
-    const [editcname, setEditCname] = useState('');
-    const [editpopulation, setEditPopulation] = useState(0);
-    const apiEndPoint = "https://web-production-6663.up.railway.app/country";
+  const Query = () => {
+    const [res, setRes] = useState([]);
+    const [res2, setRes2] = useState([]);
+    const [res3, setRes3] = useState([]);
+    const [res4, setRes4] = useState([]);
+    const [res5, setRes5] = useState([]);
+    const [res6, setRes6] = useState([]);
+    const [res7, setRes7] = useState([]);
+    const [res8, setRes8] = useState([]);
+    const [res9, setRes9] = useState([]);
+    const [res10, setRes10] = useState([]);
+    const [res11, setRes11] = useState([]);
+
+    const apiEndPoint = "http://127.0.0.1:8000/query1";
+
+    const queries = [
+      { res: res ,id: 1, query: 'List the disease code and the description of diseases that are caused by “bacteria” (pathogen) and were discovered before 1990.'},
+      { res: res2, id: 2, query: 'List the name, surname and degree of doctors who are not specialized in “infectious diseases”.' },
+      { res: res3, id: 3, query: 'List the name, surname and degree of doctors who are specialized in more than 2 disease types.' },
+      { res: res4, id: 4, query: 'For each country list the cname and average salary of doctors who are specialized in “virology”.'},
+      { res: res5, id: 5, query: 'List the departments of public servants who report “covid-19” cases in more than one country and the number of such public servants who work in these departments. (i.e “Dept1 3” means that in the “Dept1” department there are 3 such employees.)'},
+      { res: res6, id: 6, query: 'Double the salary of public servants who have recorded covid-19 patients more than 3 times.'},
+      { res: res7, id: 7, query: 'Delete the users whose name contain the substring “bek” or “gul” (e.g. Alibek, Gulsim)'},
+      { res: res8, id: 8, query: 'Create an index namely “idx pathogen” on the “pathogen” field.'},
+      { res: res9, id: 9, query: 'List the email, name, and department of public servants who have created records where the number of patients is between 100000 and 999999'},
+      { res: res10, id: 10, query: 'List the top 5 counties with the highest number of total patients recorded.'},
+      { res: res11, id: 11, query: 'Group the diseases by disease type and the total number of patients treated.'},
+
+    ]
    
     useEffect(() => {
-      loadUsers();
+      loadQuery1();
+      loadQuery2();
+      loadQuery3();
+      loadQuery4();
+      loadQuery5();
+      loadQuery6();
+      loadQuery7();
+      loadQuery8();
+      loadQuery9();
+      loadQuery10();
+      loadQuery11();
     }, []);
    
-    const loadUsers = async () => {
+    const loadQuery1 = async () => {
       const result = await axios.get(apiEndPoint);
-      setUser(result.data);
-    };
-  
-  
-    const handleDelete = (user) =>
-    {
-      console.log(user.disease_code)
-      axios.delete(apiEndPoint, { data: { cname: user.cname } })
-      .then((result)=>{
-        loadUsers();
-      })
-      .catch(()=>{
-        alert('Error in the Code');
-      });
+      console.log(result);
+      setRes(result.data);
     };
 
-    const handleAdd = (e) =>
-    {
-        axios({
-            method: 'post',
-            url: apiEndPoint,
-            headers: {}, 
-            data: {
-            cname: cname, 
-            population: population
-            }
-        }).then((result)=>{
-                alert('Data Inserted');
-            loadUsers();
-          })
+    const loadQuery2 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query2`);
+      console.log(result);
+      setRes2(result.data);
     };
 
-    const handleEdit = (e) =>
-    {
-        console.log(editcname)
-        console.log(editpopulation)
-        axios({
-            method: 'put',
-            url: apiEndPoint,
-            headers: {}, 
-            data: {
-            cname: editcname, 
-            population: editpopulation
-            }
-        }).then((result)=>{
-                alert('Data Edited');
-            loadUsers();
-          })
+    const loadQuery3 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query3`);
+      console.log(result);
+      setRes3(result.data);
+    };
+
+    const loadQuery4 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query4`);
+      console.log(result);
+      setRes4(result.data);
+    };
+
+    const loadQuery5 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query5`);
+      console.log(result);
+      setRes5(result.data);
+    };
+
+    const loadQuery6 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query6`);
+      console.log(result);
+      setRes6(result.data);
+    };
+
+    const loadQuery7 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query7`);
+      console.log(result);
+      setRes7(result.data);
+    };
+
+    const loadQuery8 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query8`);
+      console.log(result);
+      setRes8(result.data);
+    };
+
+    const loadQuery9 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query9`);
+      console.log(result);
+      setRes9(result.data);
+    };
+
+    const loadQuery10 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query10`);
+      console.log(result);
+      setRes10(result.data);
+    };
+
+    const loadQuery11 = async () => {
+      const result = await axios.get(`http://127.0.0.1:8000/query11`);
+      console.log(result);
+      setRes11(result.data);
     };
   
     const { classes, cx } = useStyles();
-    const [active, setActive] = useState('Locations');
-    const [activeLink, setActiveLink] = useState('Countries');
+    const [active, setActive] = useState('Queries');
+    const [activeLink, setActiveLink] = useState('Query1');
   
     const mainLinks = mainLinksMockdata.map((link) => (
       <Tooltip label={link.label} position="right" withArrow transitionDuration={0} key={link.label}>
@@ -204,8 +249,8 @@ import {
             if(link.label === "Actions") {
               window.location.href='/record';
             }
-            if(link.label === "Queries") {
-              window.location.href='/query';
+            if(link.label === "Locations") {
+              window.location.href='/country';
             }
             setActive(link.label)}}
           className={cx(classes.mainLink, { [classes.mainLinkActive]: link.label === active })}
@@ -237,45 +282,66 @@ import {
         {link}
       </a>
     ));
-  
-    const rows = users.map((user) => (
-      <tr key={user.cname}>
+
+    let display
+    const handleDisplay = (e) => {
+      if(e == 1) {
+          display = res.map((r) => (
+            <tr>
+              <td>{r[0]}</td>
+              <td>{r[1]}</td>
+            </tr>
+          ));
+      } else if (e == 2) {
+          display = res2.map((r) => (
+            <tr>
+              <td>{r[0]}</td>
+              <td>{r[1]}</td>
+              <td>{r[2]}</td>
+            </tr>
+          ));
+      } else if (e == 3) {
+          display = res3.map((r) => (
+            <tr>
+              <td>{r[0]}</td>
+              <td>{r[1]}</td>
+              <td>{r[2]}</td>
+            </tr>
+          ));
+      } else if (e == 4) {
+          display = res4.map((r) => (
+            <tr>
+              <td>{r[0]}</td>
+              <td>{r[1]}</td>
+            </tr>
+          ));
+      }
+    }
+
+    
+    const rows = queries.map((user) => (
+      <tr >
         <td scope="col" class="col-sm-2"></td>
         <td>
-          <Text size="sm">{user.cname}</Text>
+          
+          <Text fw={500}>Query {user.id}: </Text>
+          <Text size="sm">{user.query}</Text>
+          <Text fw={500}></Text>
+          <Text fw={500}>{'\n'}Answer: </Text>
+          <Text> 
+                {handleDisplay(user.id)}
+                {display}
+                {/* {"display" + user.id} */}
+          </Text>
         </td>
-        <td scope="col" class="col-sm-2"></td>
+        {/* <td scope="col" class="col-sm-2"></td>
         <td>
           <Text size="sm">{user.population}</Text>
           </td>
         <td scope="col" class="col-sm-2"></td>
         <td>
-          <Group spacing={0} position="right">
-            
-            <Popover width={300} trapFocus position="bottom" withArrow shadow="md">
-                    <Popover.Target>
-                        {/* <Button>Add new country</Button> */}
-                        {/*  */}
-                        <ActionIcon>
-                            <IconPencil size={16} stroke={1.5} />
-                        </ActionIcon>
-
-                    </Popover.Target>
-                    <Popover.Dropdown sx={(theme) => ({ background: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white })}>
-                        <TextInput value={editcname} onChange={(event) => setEditCname(event.currentTarget.value)} label="Enter country name" placeholder="" size="xs" />
-                        <TextInput value={editpopulation} onChange={(event) => setEditPopulation(event.currentTarget.value)}label="Enter population" placeholder="" size="xs" mt="xs" />
-                        <div style={{marginTop:"10px"}}> 
-                            <Button onClick={() => handleEdit()}>Edit</Button>
-                        </div>
-                    </Popover.Dropdown>
-                </Popover>
-              
-            <ActionIcon>
-              <IconTrash size={16} stroke={1.5} onClick={() => handleDelete(user)}/>
-            </ActionIcon>
-  
-          </Group>
-        </td>
+          
+        </td> */}
       </tr>
     ));
   
@@ -297,56 +363,25 @@ import {
           </Navbar>
           <div className='users'>
             <ScrollArea>
-            <div style={{width:"100%",display:"flex",justifyContent:"space between"}}>
-                <Popover width={300} trapFocus position="bottom" withArrow shadow="md">
-                    <Popover.Target>
-                        <Button>Add new country</Button>
-                    </Popover.Target>
-                    <Popover.Dropdown sx={(theme) => ({ background: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white })}>
-                        <TextInput value={cname} onChange={(event) => setCname(event.currentTarget.value)} label="Country name" placeholder="Spain" size="xs" />
-                        <TextInput value={population} onChange={(event) => setPopulation(event.currentTarget.value)} label="Population" placeholder="10000000" size="xs" mt="xs" />
-                        <div style={{marginTop:"10px"}}> 
-                            <Button onClick={() => handleAdd()}>Add</Button>
-                        </div>
-                    </Popover.Dropdown>
-                </Popover>
-            <div style={{width:"75%"}}></div>
-            <Autocomplete
-              className={classes.search}
-              placeholder="Search"
-              icon={<IconSearch size={16} stroke={1.5} />}
-              data={[]}
-            />
-            </div>
+           
               <Table sx={{ minWidth: 850 }} verticalSpacing="md">
               <thead class="thead-primary">
               <tr>
-                <th scope="col" class="col-sm-2"></th> 
-                <th scope="col">Country Name</th>
-                <th scope="col" class="col-sm-2"></th>
-                <th scope="col" class="text-start">Population</th>
-                <th scope="col" class="col-sm-2"></th>
-                <th class="text-center"></th>
-  
+                {/* <Text fw={500}>Query 1: </Text>
+                <Text fz="sm">List the disease code and the description of diseases that are caused by “bacteria” (pathogen) and were discovered before 1990.</Text>
+                <Text fw={500}>Answer: </Text> */}
+                {/* {res.map((r, index) => (
+                  <tr>
+                    <td>{r[0]} {" "} {" "} {" "} {r[1]}</td>
+                  </tr>
+                ))} */}
                 
               </tr>
             </thead>
                 <tbody>{rows}</tbody>
               </Table>
 
-              <div style={{marginTop:"50px"}}>
-            <Pagination
-                total={10}
-                position="center"
-                styles={(theme) => ({
-                    item: {
-                    '&[data-active]': {
-                        backgroundImage: theme.fn.gradient({ from: 'blue', to: 'blue' }),
-                    },
-                    },
-                })}
-                />
-            </div>
+              
             </ScrollArea>
           </div>
           
@@ -354,4 +389,4 @@ import {
         );
   };
   
-  export default Country;
+  export default Query;
