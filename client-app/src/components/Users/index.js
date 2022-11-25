@@ -315,7 +315,7 @@ import axios from "axios";
   
       return (
         <div className='container-d' >
-          <Navbar height={1700} width={{ sm: 300 }}>
+          <Navbar height={1900} width={{ sm: 300 }}>
               <Navbar.Section grow className={classes.wrapper}>
                   <div className={classes.aside}>
                       {mainLinks}
