@@ -323,7 +323,7 @@ import {
           </tr>
         ));
       } else if (e == 6) {
-        display = res6
+        display = "Succesfully updated salaries"
       } else if (e == 7) {
       display = "Succesfully deleted users"
       } else if (e == 8) {
