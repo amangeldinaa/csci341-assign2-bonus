@@ -287,18 +287,6 @@ import {
     const handleDisplay = (e) => {
       if(e == 1) {
           display = res.map((r) => (
-            <Table sx={{ minWidth: 850 }} verticalSpacing="md">
-              {/* <thead class="thead-primary">
-                <tr>
-                  <th scope="col" class="col-sm-2"></th> 
-                  <th scope="col">Disease Code</th>
-                  <th scope="col" class="col-sm-2"></th>
-                  <th scope="col" class="text-start">Description</th>
-                  <th scope="col" class="col-sm-2"></th>
-    
-                </tr>
-              </thead> */}
-              <tbody>
                 <tr>
                   <th scope="col" class="col-sm-2"></th> 
                   <td>{r[0]}</td>
@@ -306,12 +294,6 @@ import {
                   <td>{r[1]}</td>
                   <th scope="col" class="col-sm-2"></th>
                 </tr>
-              </tbody>
-            </Table>
-            // <tr>
-            //   <td>{r[0]}</td>
-            //   <td>{r[1]}</td>
-            // </tr>
           ));
       } else if (e == 2) {
           display = res2.map((r) => (
