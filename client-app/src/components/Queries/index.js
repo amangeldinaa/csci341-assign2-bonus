@@ -330,11 +330,12 @@ import {
           </tr>
         ));
       } else if (e == 6) {
-        display = res6.map((r) => (
-          <tr>
-            <td>{r}</td>
-          </tr>
-        ));
+        display = res6
+        // .map((r) => (
+        //   <tr>
+        //     <td>{r}</td>
+        //   </tr>
+        // ));
       // } else if (e == 7) {
       // display = res7.map((r) => (
       //   <tr>
