@@ -388,7 +388,7 @@ import {
   
       return (
         <div className='container-d' >
-          <Navbar height={1150} width={{ sm: 300 }}>
+          <Navbar height={2000} width={{ sm: 300 }}>
               <Navbar.Section grow className={classes.wrapper}>
                   <div className={classes.aside}>
                       {mainLinks}
