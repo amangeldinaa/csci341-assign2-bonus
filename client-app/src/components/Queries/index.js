@@ -288,23 +288,16 @@ import {
       if(e == 1) {
           display = res.map((r) => (
                 <tr>
-                  <th scope="col" class="col-sm-2"></th> 
                   <td>{r[0]}</td>
-                  <th scope="col" class="col-xs-2"></th>
                   <td>{r[1]}</td>
-                  <th scope="col" class="col-sm-2"></th>
                 </tr>
           ));
       } else if (e == 2) {
           display = res2.map((r) => (
             <tr>
-              <th scope="col" class="col-sm-2"></th> 
               <td>{r[0]}</td>
-              <th scope="col" class="col-sm-2"></th> 
-              <td>{r[1]}</td>
-              <th scope="col" class="col-sm-2"></th> 
+              <td>{r[1]}</td> 
               <td>{r[2]}</td>
-              <th scope="col" class="col-sm-2"></th> 
             </tr>
           ));
       } else if (e == 3) {
