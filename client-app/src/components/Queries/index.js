@@ -329,45 +329,45 @@ import {
             <td>{r[1]}</td>
           </tr>
         ));
-      } else if (e == 6) {
-        display = res6.map((r) => (
-          <tr>
-            <td>{r}</td>
-          </tr>
-        ));
-      } else if (e == 7) {
-      display = res7.map((r) => (
-        <tr>
-          <td>{r}</td>
-        </tr>
-      ));
-      } else if (e == 8) {
-        display = res8.map((r) => (
-          <tr>
-            <td>{r}</td>
-          </tr>
-        ));
-      } else if (e == 9) {
-        display = res9.map((r) => (
-          <tr>
-            <td>{r[0]}</td>
-            <td>{r[1]}</td>
-            <td>{r[2]}</td>
-          </tr>
-        ));
-      } else if (e == 10) {
-        display = res10.map((r) => (
-          <tr>
-            <td>{r[0]}</td>
-          </tr>
-        ));
-      } else if (e == 11) {
-        display = res11.map((r) => (
-          <tr>
-            <td>{r[0]}</td>
-            <td>{r[1]}</td>
-          </tr>
-        ));
+      // } else if (e == 6) {
+      //   display = res6.map((r) => (
+      //     <tr>
+      //       <td>{r}</td>
+      //     </tr>
+      //   ));
+      // } else if (e == 7) {
+      // display = res7.map((r) => (
+      //   <tr>
+      //     <td>{r}</td>
+      //   </tr>
+      // ));
+      // } else if (e == 8) {
+      //   display = res8.map((r) => (
+      //     <tr>
+      //       <td>{r}</td>
+      //     </tr>
+      //   ));
+      // } else if (e == 9) {
+      //   display = res9.map((r) => (
+      //     <tr>
+      //       <td>{r[0]}</td>
+      //       <td>{r[1]}</td>
+      //       <td>{r[2]}</td>
+      //     </tr>
+      //   ));
+      // } else if (e == 10) {
+      //   display = res10.map((r) => (
+      //     <tr>
+      //       <td>{r[0]}</td>
+      //     </tr>
+      //   ));
+      // } else if (e == 11) {
+      //   display = res11.map((r) => (
+      //     <tr>
+      //       <td>{r[0]}</td>
+      //       <td>{r[1]}</td>
+      //     </tr>
+      //   ));
       } 
     }
 
