@@ -298,9 +298,13 @@ import {
       } else if (e == 2) {
           display = res2.map((r) => (
             <tr>
+              <th scope="col" class="col-sm-2"></th> 
               <td>{r[0]}</td>
+              <th scope="col" class="col-sm-2"></th> 
               <td>{r[1]}</td>
+              <th scope="col" class="col-sm-2"></th> 
               <td>{r[2]}</td>
+              <th scope="col" class="col-sm-2"></th> 
             </tr>
           ));
       } else if (e == 3) {
@@ -318,7 +322,53 @@ import {
               <td>{r[1]}</td>
             </tr>
           ));
-      }
+      } else if (e == 5) {
+        display = res5.map((r) => (
+          <tr>
+            <td>{r[0]}</td>
+            <td>{r[1]}</td>
+          </tr>
+        ));
+      } else if (e == 6) {
+        display = res6.map((r) => (
+          <tr>
+            <td>{r[0]}</td>
+          </tr>
+        ));
+      } else if (e == 7) {
+      display = res7.map((r) => (
+        <tr>
+          <td>{r[0]}</td>
+        </tr>
+      ));
+      } else if (e == 8) {
+        display = res8.map((r) => (
+          <tr>
+            <td>{r[0]}</td>
+          </tr>
+        ));
+      } else if (e == 9) {
+        display = res9.map((r) => (
+          <tr>
+            <td>{r[0]}</td>
+            <td>{r[1]}</td>
+            <td>{r[2]}</td>
+          </tr>
+        ));
+      } else if (e == 10) {
+        display = res10.map((r) => (
+          <tr>
+            <td>{r[0]}</td>
+          </tr>
+        ));
+      } else if (e == 11) {
+        display = res11.map((r) => (
+          <tr>
+            <td>{r[0]}</td>
+            <td>{r[1]}</td>
+          </tr>
+        ));
+      } 
     }
 
     
